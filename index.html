@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPINE - Générateur IA de Documentaires</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="alpine-symbol">◢</div>
+                    </div>
+                    <span class="logo-text">ALPINE</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#generator">Générateur</a></li>
+                    <li><a href="#exemples">Exemples</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Créez des <span class="highlight">documentaires</span>
+                    <br>avec l'intelligence artificielle
+                </h1>
+                <p class="hero-subtitle">
+                    ALPINE transforme vos idées en documentaires professionnels de haute qualité.
+                    Décrivez simplement votre vision, notre IA génère le contenu en quelques minutes.
+                </p>
+                <button class="cta-button" onclick="scrollToGenerator()">
+                    Commencer maintenant
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <div class="card-header">
+                        <div class="record-indicator"></div>
+                        <span>Génération en cours...</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="generator" class="generator-section">
+            <div class="container">
+                <h2 class="section-title">Générateur de Documentaires</h2>
+                <div class="generator-container">
+                    <form class="generator-form" id="documentaryForm">
+                        <div class="form-group">
+                            <label for="topic">Sujet du documentaire</label>
+                            <input type="text" id="topic" placeholder="Ex: L'impact du changement climatique sur les océans">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="style">Style de documentaire</label>
+                            <select id="style">
+                                <option value="scientifique">Scientifique</option>
+                                <option value="historique">Historique</option>
+                                <option value="nature">Nature & Environnement</option>
+                                <option value="social">Social & Société</option>
+                                <option value="technologie">Technologie & Innovation</option>
+                                <option value="biographique">Biographique</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tone">Ton narratif</label>
+                            <select id="tone">
+                                <option value="objectif">Objectif et informatif</option>
+                                <option value="dramatique">Dramatique et captivant</option>
+                                <option value="inspirant">Inspirant et motivant</option>
+                                <option value="contemplatif">Contemplatif et réflexif</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration">Durée souhaitée</label>
+                            <select id="duration">
+                                <option value="2">2 minutes</option>
+                                <option value="5">5 minutes</option>
+                                <option value="7">7 minutes</option>
+                                <option value="10">10 minutes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description détaillée</label>
+                            <textarea id="description" rows="4" placeholder="Décrivez votre vision du documentaire, les aspects à couvrir, le message à transmettre..."></textarea>
+                        </div>
+
+                        <button type="submit" class="generate-button">
+                            <div class="button-content">
+                                <span class="button-text">Générer le documentaire</span>
+                                <div class="button-loader" style="display: none;">
+                                    <div class="spinner"></div>
+                                </div>
+                            </div>
+                        </button>
+                    </form>
+
+                    <div class="result-container" id="resultContainer" style="display: none;">
+                        <h3>Documentaire généré</h3>
+                        <div class="video-preview">
+                            <div class="video-placeholder">
+                                <div class="play-button">▶</div>
+                                <div class="video-info">
+                                    <p id="generatedTitle"></p>
+                                    <span id="generatedDuration"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="script-preview">
+                            <h4>Script généré</h4>
+                            <div id="generatedScript"></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="download-button">Télécharger</button>
+                            <button class="edit-button">Modifier</button>
+                            <button class="share-button">Partager</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="exemples" class="examples-section">
+            <div class="container">
+                <h2 class="section-title">Exemples de documentaires générés</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="example-thumbnail">
+                            <div class="play-overlay">▶</div>
+                        </div>
+                        <h3>Les Océans en Péril</h3>
+                        <p>Documentaire sur l'impact du plastique sur la vie marine</p>
+                        <span class="duration">8 minutes</span>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-thumbnail">
+                            <div class="play-overlay">▶</div>
+                        </div>
+                        <h3>L'Évolution de l'IA</h3>
+                        <p>Histoire et perspectives de l'intelligence artificielle</p>
+                        <span class="duration">10 minutes</span>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-thumbnail">
+                            <div class="play-overlay">▶</div>
+                        </div>
+                        <h3>Villes du Futur</h3>
+                        <p>Comment l'urbanisme s'adapte aux défis climatiques</p>
+                        <span class="duration">7 minutes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <div class="alpine-symbol">◢</div>
+                </div>
+                <span>ALPINE</span>
+            </div>
+            <p>&copy; 2025 ALPINE. Générateur IA de documentaires professionnels.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+"Ajout du fichier index.html"
